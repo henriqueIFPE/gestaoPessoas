@@ -75,7 +75,8 @@
 							<td th:text="${func.cargo.nome}"></td>
 							<td th:text="${func.empresa.nomeRazaoSocial}"></td>
 							<td th:text="${#dates.format(func.dataCriacao, 'dd-MMM-yyyy hh:mm')}"></td>
-							<td><a th:href="@{/formFunc/editar/{codigo}(codigo=${func.codigo})}">Editar</a> <a href="">Excluir</a>
+							<td><a th:href="@{/formFunc/editar/{codigo}(codigo=${func.codigo})}">Editar</a> 
+							<a th:href="@{/formFunc/excluirFuncionario/{codigo}(codigo=${func.codigo})}">Excluir</a>
 							</td>
 						</tr>
 

@@ -38,6 +38,20 @@ public class FuncionarioService {
 	}
 
 	
+	
+
+	public void delete(Funcionario entity) {
+		funcionarioDAO.delete(entity);
+	}
+	
+	
+
+
+
+	public void deleteById(Integer id) {
+		funcionarioDAO.deleteById(id);
+	}
+
 
 
 	public void inserirFuncionario(Funcionario funcionario) throws ServiceException {
@@ -54,5 +68,12 @@ public class FuncionarioService {
 		funcionario.setDataCriacao(new Date());
 		funcionario.setDataUltimaAtualizacao(new Date());
 		this.funcionarioDAO.save(funcionario);
+	}
+
+
+
+	public boolean existeFuncionario(Integer codigo) {
+	
+		return false;
 	}
 }

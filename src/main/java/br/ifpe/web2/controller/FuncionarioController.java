@@ -61,7 +61,7 @@ public class FuncionarioController {
 		} 
 	}
 	
-	@GetMapping("/editar/{codigo}")
+	@GetMapping("/formFunc/editar/{codigo}")
 	public String preEditar(@PathVariable("codigo") Integer codigo, ModelMap model) {
 		model.addAttribute("funcionario", this.funcService.buscarPorId(codigo));
 		return "/funcionario/funcionario-form";
@@ -74,4 +74,12 @@ public class FuncionarioController {
 		
 	}
 
+	@GetMapping("/formFunc/excluirFuncionario/{id}")
+	public String excluirFuncionario( @PathVariable("codigo") Integer codigo, ModelMap model) {
+		
+		this.funcService.deleteById(codigo);
+
+		return "redirect:/formFunc";
+	}
+	
 }
