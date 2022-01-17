@@ -17,11 +17,13 @@
 
 			<div class="table-wrapper col-sm-12 col-md-8">
 				<h4>Cargos</h4>
-				<form th:action="@{/salvarCargo}" method="post" th:object="${cargo}">
+				<form action="/salvarEmpresa" method="post" th:object="${empresa}">
 					<input type="text" class="form-control"
-						th:field="*{nome}" placeholder="Nome">
+						th:field="*{nomeRazaoSocial}" placeholder="nomeRazaoSocial">
+					<input type="text" class="form-control"
+						th:field="*{nomeResponsavel}" placeholder="nomeResponsavel">
 					<input type="number" class="form-control"
-						th:field="*{salario}" placeholder="Salário">
+						th:field="*{telefone}" placeholder="telefone">
 					<div th:if="${mensagem != null}" th:text="${mensagem}" class="alert-success"></div>
 					<div th:if="${#fields.hasErrors('*')}">
 						<ul>
@@ -29,8 +31,7 @@
 								class="alert-danger">
 						</ul>
 					</div>
-				<!-- 	<input type="hidden" id="codigo" th:field="*{codigo} > -->
-					<button type="submit" class="btn btn-secondary">Salvar Funcionario</button>
+					<button type="submit" class="btn btn-secondary">Salvar Empresa</button>
 
 				</form>
 				<hr />
@@ -41,9 +42,9 @@
 					<!--Table head-->
 					<thead>
 						<tr>
-							<th class="th-lg">Nome</th>
-							<th class="th-lg">Salário</th>
-							<th class="th-lg">Cadastrado em</th>
+							<th class="th-lg">Razï¿½o Social</th>
+							<th class="th-lg">Responsavel</th>
+							<th class="th-lg">telefone</th>
 							<th class="th-lg">+++</th>
 						</tr>
 					</thead>
@@ -51,12 +52,11 @@
 
 					<!--Table body-->
 					<tbody>
-						<tr th:each="cargo : ${listaCargos}">
-							<td th:text="${cargo.nome}"></td>
-							<td th:text="${cargo.salario}"></td>
-							<td th:text="${#dates.format(cargo.dataCriacao, 'dd-MMM-yyyy hh:mm')}"></td>
-							<td><a th:href="@{/cargo/editar/{codigo} (codigo=${cargo.codigo}) }">Editar</a> 
-								<a href="">Excluir</a>
+						<tr th:each="empresa : ${empresas}">
+							<td th:text="${empresa.nomeRazaoSocial}"></td>
+							<td th:text="${empresa.nomeResponsavel}"></td>
+							<td th:text="${empresa.telefone}"></td>
+							<td><a href="">Editar</a> <a href="">Excluir</a>
 							</td>
 						</tr>
 

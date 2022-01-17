@@ -61,7 +61,7 @@ public class FuncionarioController {
 		} 
 	}
 	
-	@GetMapping("/formFunc/editar/{codigo}")
+	@GetMapping("/formFunccd com/editar/{codigo}")
 	public String preEditar(@PathVariable("codigo") Integer codigo, ModelMap model) {
 		model.addAttribute("funcionario", this.funcService.buscarPorId(codigo));
 		return "/funcionario/funcionario-form";

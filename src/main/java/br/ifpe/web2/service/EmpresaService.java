@@ -49,5 +49,11 @@ public class EmpresaService {
 			}
 		}
 	}
+
+	public List<Empresa> findAll() {
+		return empresaDAO.findAll();
+	}
+	
+	
 	
 }
